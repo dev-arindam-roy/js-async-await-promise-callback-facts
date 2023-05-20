@@ -48,4 +48,57 @@ function createUser(userData, callback = null) {
 /** Here showUsers() function will display after execution of createUser() function **/
 createUser({name: "Arindam Roy", profession: "Dream Developer"}, showUsers);
 ```
+## Promise
+```js
+const userlist = [
+  { name: "John Doe", profession: "Software Developer" },
+  { name: "Alice Smith", profession: "Graphic Designer" },
+  { name: "Michael Johnson", profession: "Data Analyst" },
+  { name: "Emily Brown", profession: "UX/UI Designer" }
+];
+
+
+function showUsers() {
+  setTimeout(() => {
+    if (userlist.length) {
+      userlist.forEach((item, index) => {
+        console.log(index + '> ' + item.name + ' --- ' + item.profession);
+      });
+    }
+  }, 1000);
+}
+
+function createUser(userData) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      userlist.push(userData);
+      let isErrorOccur = false;
+      if (!isErrorOccur) {
+        //resolve();
+        resolve("pass your param");
+      } else {
+        reject("Something Wrong");
+      }
+    }, 3000);
+  });
+}
+
+/** Here is the promise uses to aync the execution **/
+/** First createUser() call and if the previous call has success Then showUsers() call **/
+
+/** Call Example: 1 **/
+createUser({name: "Arindam Roy", profession: "Dream Developer"}).then(showUsers);
+
+/** Call Example: 2 **/
+createUser({name: "Arindam Roy", profession: "Dream Developer"}).then(showUsers)
+  .catch((getRejectParam) => { console.log(getRejectParam); });
+
+/** Call Example: 3 **/
+createUser({name: "Arindam Roy", profession: "Dream Developer"}).then((getResolveParam) => {
+    console.log(getResolveParam); 
+    showUsers();
+  }).catch((getRejectParam) => {
+    console.log(getRejectParam);
+  });
+```
 
