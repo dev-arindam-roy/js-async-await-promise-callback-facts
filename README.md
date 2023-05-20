@@ -86,17 +86,26 @@ function createUser(userData) {
 /** Here is the promise uses to aync the execution **/
 /** First createUser() call and if the previous call has success Then showUsers() call **/
 
-/** Call Example: 1 **/
+/** Call Example: 1 (simple) **/
 createUser({name: "Arindam Roy", profession: "Dream Developer"}).then(showUsers);
 
-/** Call Example: 2 **/
+/** Call Example: 2 (using error parameter from reject) **/
 createUser({name: "Arindam Roy", profession: "Dream Developer"}).then(showUsers)
   .catch((getRejectParam) => { console.log(getRejectParam); });
 
-/** Call Example: 3 **/
+/** Call Example: 3 (using no parameter from resolve) **/
+createUser({name: "Arindam Roy", profession: "Dream Developer"}).then(() => {
+  showUsers();
+}).catch((getRejectParam) => { 
+  console.log(getRejectParam); 
+});
+
+/** Call Example: 4 (using both resolve & reject parameter) **/
 createUser({name: "Arindam Roy", profession: "Dream Developer"}).then((getResolveParam) => {
+    // do operation
     console.log(getResolveParam); 
     showUsers();
+    // do another operations
   }).catch((getRejectParam) => {
     console.log(getRejectParam);
   });
