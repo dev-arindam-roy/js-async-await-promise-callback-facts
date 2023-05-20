@@ -102,12 +102,12 @@ createUser({name: "Arindam Roy", profession: "Dream Developer"}).then(() => {
 
 /** Call Example: 4 (using both resolve & reject parameter) **/
 createUser({name: "Arindam Roy", profession: "Dream Developer"}).then((getResolveParam) => {
-    // do operation
-    console.log(getResolveParam); 
-    showUsers();
-    // do another operations
-  }).catch((getRejectParam) => {
-    console.log(getRejectParam);
-  });
+  // do operation
+  console.log(getResolveParam); 
+  showUsers();
+  // do another operations
+}).catch((getRejectParam) => {
+  console.log(getRejectParam);
+});
 ```
 
