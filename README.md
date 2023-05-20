@@ -52,7 +52,7 @@ function createUser(userData, callback = null) {
 createUser({name: "Arindam Roy", profession: "Dream Developer"}, showUsers);
 ```
 ## Promise
-<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a>
+<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a> (Run only 1 call, rest comment please)
 ```js
 const userlist = [
   { name: "John Doe", profession: "Software Developer" },
@@ -115,7 +115,7 @@ createUser({name: "Arindam Roy", profession: "Dream Developer"}).then((getResolv
 });
 ```
 # async & await
-<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a>
+<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a> (Run only 1 call, rest comment please)
 ```js
 function f0() {
     setTimeout(() => {console.log('0/6sce')}, 6000);
