@@ -2,7 +2,8 @@
 # Using - async, await, promise, callback
 Snippets for async, await, promise, callback debugging example and facts
 
-## Why? there is the problem
+## Why? here is the problem
+<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a>
 ```js
 console.log(1); // 1st execute
 setTimeout(() => { console.log(2) }, 2000); // 5th execute
@@ -19,6 +20,7 @@ Output Will Be
 ```
 
 ## callback
+<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a>
 ```js
 const userlist = [
   { name: "John Doe", profession: "Software Developer" },
@@ -50,6 +52,7 @@ function createUser(userData, callback = null) {
 createUser({name: "Arindam Roy", profession: "Dream Developer"}, showUsers);
 ```
 ## Promise
+<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a>
 ```js
 const userlist = [
   { name: "John Doe", profession: "Software Developer" },
@@ -112,6 +115,7 @@ createUser({name: "Arindam Roy", profession: "Dream Developer"}).then((getResolv
 });
 ```
 # async & await
+<a href="https://jsbin.com/negixufaza/edit?js,console">Copy the code & Run here!</a>
 ```js
 function f0() {
     setTimeout(() => {console.log('0/6sce')}, 6000);
