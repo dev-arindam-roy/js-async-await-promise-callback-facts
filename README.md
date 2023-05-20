@@ -16,3 +16,36 @@ Output Will Be
 1 3 5 "ABC" 2 4 6
 **/
 ```
+
+## callback
+```js
+const userlist = [
+  { name: "John Doe", profession: "Software Developer" },
+  { name: "Alice Smith", profession: "Graphic Designer" },
+  { name: "Michael Johnson", profession: "Data Analyst" },
+  { name: "Emily Brown", profession: "UX/UI Designer" }
+];
+
+
+function showUsers() {
+  setTimeout(() => {
+    if (userlist.length) {
+      userlist.forEach((item, index) => {
+        console.log(index + '> ' + item.name + ' --- ' + item.profession);
+      });
+    }
+  }, 1000);
+}
+
+function createUser(userData, callback = null) {
+  setTimeout(() => {
+    userlist.push(userData);
+    callback();
+  }, 3000);
+}
+
+/** Here is the callback use to aync the execution **/
+/** Here showUsers() function will display after execution of createUser() function **/
+createUser({name: "Arindam Roy", profession: "Dream Developer"}, showUsers);
+```
+
