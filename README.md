@@ -1,4 +1,5 @@
-# Asynchronous Javascript using - async, await, promise, callback
+# Asynchronous Javascript Programming
+# Using - async, await, promise, callback
 Snippets for async, await, promise, callback debugging example and facts
 
 ## Why? there is the problem
