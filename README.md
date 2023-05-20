@@ -110,4 +110,94 @@ createUser({name: "Arindam Roy", profession: "Dream Developer"}).then((getResolv
   console.log(getRejectParam);
 });
 ```
+# async & await
+```js
+function f0() {
+    setTimeout(() => {console.log('0/6sce')}, 6000);
+}
+
+function f1() {
+  console.log('1/0sce');
+}
+
+function f2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) {
+        console.log('2/5sce'); 
+        resolve();
+      } else {
+        console.log('error-2');
+        reject();
+      } 
+    }, 5000);
+  });
+}
+
+function f3() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) {
+        resolve(console.log('3/3sce'));
+      } else {
+        reject(console.log('error-3'));
+      } 
+    }, 3000);
+  });
+}
+
+function f4() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) {
+        resolve(console.log('4/1sce'));
+      } else {
+        reject(console.log('error-4'));
+      } 
+    }, 1000);
+  });
+}
+
+/**
+Point 1: 'await' can't use without 'async'
+Point 2: 'await' feature will work if returns come from 'promise' 
+**/
+
+/** A simple understandable call like below **/
+async function start() {
+  await f0(); // await not work here as f0() not return promise
+  await f1(); // await not work here as f1() not return promise
+  await f2();
+  await f3();
+  await f4();
+}
+
+/** Another simple call using the **/ 
+async function start() {
+  f0();
+  await f2().then(f3).then(f4);
+  f1();
+}
+
+/** Nested async - await call **/
+async function start() {
+  await f2().then(async () => {
+    await f3().then(async () => {
+      await f4().then(async () => {
+        console.log('success block of f4');
+      }).catch(() => {
+        console.log('error catch block of f4');
+      });
+    }).catch(() => {
+      console.log('error catch block of f3');
+    });
+  }).catch(() => {
+    console.log('error catch block of f2');
+  });
+  f0();
+  f1();
+}
+
+start();
+```
 
